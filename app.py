@@ -51,6 +51,8 @@ def precipitation():
                 filter(measurement.date >= '2016-08-23').\
                 group_by(measurement.date).all()
     
+    session.close()
+
     precipitation_list = []
     for date, prcp in results:
         prcp_dict = {}
@@ -66,6 +68,8 @@ def stations():
 
     results = session.query(station.id, station.station, station.name, station.latitude, station.longitude, station.elevation).all()
     
+    session.close()
+
     station_list = []
 
     for id, station, name, latitude, longitutde, elevation in results:
@@ -88,6 +92,8 @@ def tobs():
     results = session.query(measurement.station, measurement.date, measurement.tobs).\
                 filter(measurement.station =='USC00519281', measurement.date >= '2016-08-23').all()
     
+    session.close()
+
     tobs_list = []
 
     for station, date, tobs in results:
@@ -108,6 +114,8 @@ def start_2015():
                 filter(measurement.date >= '2015-01-01').\
                 group_by(measurement.station).all()
     
+    session.close()
+
     start_list = []
 
     for station, TMIN, TMAX, TAVG in results:
@@ -130,6 +138,8 @@ def start_end():
                 filter(measurement.date >= '2016-01-01', measurement.date <='2016-12-31').\
                 group_by(measurement.station).all()
     
+    session.close()
+
     start_end_list = []
 
     for station, TMIN, TMAX, TAVG in results:
