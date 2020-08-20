@@ -34,11 +34,11 @@ app = Flask(__name__)
 def home():
      """List all available api routes."""
      return (
-        f'Available Routes:\n'
-        f'/api/v1.0/precipitation\n'
-        f'/api/v1.0/stations\n'
-        f'/api/v1.0/tobs\n'
-        f'/api/v1.0/2015\n'
+        f'Available Routes:<br/>'
+        f'/api/v1.0/precipitation<br/>'
+        f'/api/v1.0/stations<br/>'
+        f'/api/v1.0/tobs<br/>'
+        f'/api/v1.0/2015<br/>'
         f'/api/v1.0/2016/2017'
         )
 
